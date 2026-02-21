@@ -1,48 +1,47 @@
-# E-Commerce Product CRUD API
+E-Commerce Product CRUD API
 
 A Spring Boot RESTful web service for managing products with PostgreSQL database.
 
-## Prerequisites
+Prerequisites
 
 - Java 11 or higher
 - Maven 3.6+
 - PostgreSQL 12+
 
-## PostgreSQL Setup
+PostgreSQL Setup
 
-### 1. Install PostgreSQL
+ 1. Install PostgreSQL
 Download and install from: https://www.postgresql.org/download/
 
-### 2. Create Database
+ 2. Create Database
 Open pgAdmin or run in SQL shell:
 ```sql
 CREATE DATABASE ecommerce_db;
 ```
 
-### 3. Configure Database Connection
+3. Configure Database Connection
 Edit `src/main/resources/application.properties`:
 
 ```properties
-# Update these values according to your PostgreSQL setup
+Update these values according to your PostgreSQL setup
 spring.datasource.url=jdbc:postgresql://localhost:5432/ecommerce_db
 spring.datasource.username=postgres
-spring.datasource.password=your_password
+spring.datasource.password=Test@123
 ```
 
-## Running the Application
+ Running the Application
 
-### Option 1: Using Maven
+ Option 1: Using Maven
 ```bash
 mvn spring-boot:run
 ```
 
-### Option 2: Build JAR and Run
+ Option 2: Build JAR and Run
 ```bash
 mvn clean package
 java -jar target/ecommerce-product-api-1.0.0.jar
 ```
-
-## API Endpoints
+ API Endpoints
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
@@ -58,38 +57,37 @@ java -jar target/ecommerce-product-api-1.0.0.jar
 | GET | `/api/products/price-range?min=X&max=Y` | Filter by price |
 | GET | `/api/products/in-stock` | Get in-stock products |
 
-## Testing the API
+ Testing the API
 
-### Create Product
+ Create Product
 ```bash
 curl -X POST http://localhost:8080/api/products \
   -H "Content-Type: application/json" \
   -d "{\"name\":\"Laptop\",\"price\":999.99,\"category\":\"Electronics\",\"stockQuantity\":10,\"brand\":\"Dell\"}"
 ```
 
-### Get All Products
+Get All Products
 ```bash
 curl http://localhost:8080/api/products
 ```
-
-### Get Product by ID
+ Get Product by ID
 ```bash
 curl http://localhost:8080/api/products/1
 ```
 
-### Update Product
+ Update Product
 ```bash
 curl -X PUT http://localhost:8080/api/products/1 \
   -H "Content-Type: application/json" \
   -d "{\"name\":\"Laptop Pro\",\"price\":1099.99,\"category\":\"Electronics\",\"stockQuantity\":15,\"brand\":\"Dell\"}"
 ```
 
-### Delete Product
+ Delete Product
 ```bash
 curl -X DELETE http://localhost:8080/api/products/1
 ```
 
-## Project Structure
+ Project Structure
 
 ```
 src/main/java/com/ecommerce/
@@ -110,7 +108,7 @@ src/main/java/com/ecommerce/
     └── ProductServiceImpl.java   # Service implementation
 ```
 
-## Technology Stack
+Technology Stack
 
 - Spring Boot 2.7.14
 - Spring Data JPA
@@ -118,7 +116,7 @@ src/main/java/com/ecommerce/
 - Maven
 - Java 11
 
-## Notes
+Notes
 
 - The application automatically creates the `products` table on first run
 - Sample data (10 products) is loaded on startup if database is empty
